@@ -47,6 +47,7 @@ cd backend
 
 npm install
 
+.env file
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_super_secret_jwt_key
 PORT=5000
