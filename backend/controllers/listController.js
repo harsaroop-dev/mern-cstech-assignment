@@ -61,3 +61,13 @@ exports.uploadAndDistribute = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+
+exports.getTasks = async (req, res) => {
+  try {
+    const tasks = await Task.find({}).populate("assignedAgent", "name email");
+    res.json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).send("Server Error");
+  }
+};
