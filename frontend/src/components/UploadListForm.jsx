@@ -39,27 +39,47 @@ const UploadListForm = ({ onUploadSuccess }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md w-full">
+    <div className="bg-white p-6 rounded-lg shadow-md w-full h-full flex flex-col">
       <h3 className="text-xl font-bold mb-4">Upload CSV and Distribute</h3>
-      <form onSubmit={handleSubmit}>
-        <label className="block text-gray-700 mb-1" htmlFor="csvFile">
-          CSV File (.csv, .xlsx)
-        </label>
-        <input
-          type="file"
-          id="csvFile"
-          onChange={handleFileChange}
-          className="w-full px-3 py-2 border rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-          accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-        />
-        {message && <p className="text-green-600 mt-4">{message}</p>}
-        {error && <p className="text-red-600 mt-4">{error}</p>}
-        <button
-          type="submit"
-          className="w-full mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200"
-        >
-          Upload and Distribute
-        </button>
+
+      <form onSubmit={handleSubmit} className="flex flex-col flex-grow">
+        <div className="flex-grow flex flex-col justify-center items-center text-center p-4 border-2 border-dashed border-slate-300 rounded-lg hover:bg-slate-50 transition-colors">
+          <div className="w-full max-w-xs">
+            <label
+              className="block text-slate-600 font-semibold mb-2"
+              htmlFor="csvFile"
+            >
+              Choose a file to upload
+            </label>
+            <input
+              type="file"
+              id="csvFile"
+              onChange={handleFileChange}
+              className="w-full text-sm text-slate-500
+                         file:mr-4 file:py-2 file:px-4
+                         file:rounded-full file:border-0
+                         file:text-sm file:font-semibold
+                         file:bg-blue-50 file:text-blue-700
+                         hover:file:bg-blue-100"
+              accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+            />
+          </div>
+        </div>
+
+        <div className="mt-auto pt-4">
+          {message && (
+            <p className="text-blue-600 text-sm text-center mb-2">{message}</p>
+          )}
+          {error && (
+            <p className="text-red-600 text-sm text-center mb-2">{error}</p>
+          )}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200"
+          >
+            Upload and Distribute
+          </button>
+        </div>
       </form>
     </div>
   );

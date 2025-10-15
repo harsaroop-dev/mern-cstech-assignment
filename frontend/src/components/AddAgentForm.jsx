@@ -40,10 +40,9 @@ const AddAgentForm = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md w-full">
+    <div className="bg-white p-6 rounded-lg shadow-md w-full h-full flex flex-col">
       <h3 className="text-xl font-bold mb-4">Add New Agent</h3>
-      <form onSubmit={handleSubmit}>
-        {/* ... form inputs are the same ... */}
+      <form onSubmit={handleSubmit} className="flex flex-col flex-grow">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-gray-700 mb-1" htmlFor="name">
@@ -98,14 +97,18 @@ const AddAgentForm = () => {
             />
           </div>
         </div>
-        {message && <p className="text-green-600 mt-4">{message}</p>}
-        {error && <p className="text-red-600 mt-4">{error}</p>}
-        <button
-          type="submit"
-          className="w-full mt-4 bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-200"
-        >
-          Add Agent
-        </button>
+
+        <div className="mt-auto">
+          {" "}
+          {message && <p className="text-green-600 mt-4">{message}</p>}
+          {error && <p className="text-red-600 mt-4">{error}</p>}
+          <button
+            type="submit"
+            className="w-full mt-4 bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-200"
+          >
+            Add Agent
+          </button>
+        </div>
       </form>
     </div>
   );
