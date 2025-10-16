@@ -14,6 +14,8 @@ const createAdmin = async () => {
     return;
   }
 
+  // sample admin remains same
+
   const admin = new Admin({
     email: "admin@example.com",
     password: "password123",
